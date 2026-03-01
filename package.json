@@ -1,6 +1,6 @@
 {
   "name": "@gesslar/licensed",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Simple CLI to produce license copy for README.md",
   "repository": {
     "type": "git",
