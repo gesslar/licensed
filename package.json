@@ -28,11 +28,11 @@
     "major": "npm version major"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^4.0.0"
+    "@gesslar/toolkit": "^4.4.0"
   },
   "devDependencies": {
-    "@gesslar/uglier": "^2.0.0",
-    "eslint": "^10.0.2"
+    "@gesslar/uglier": "^2.2.0",
+    "eslint": "^10.0.3"
   },
   "engines": {
     "node": ">=v24.13.0"

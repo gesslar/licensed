@@ -15,20 +15,18 @@ import {promisify} from "node:util"
   // Detect license file in project root
   const licenseFile = (await cwd.glob("{LICEN[CS]E,UNLICEN[CS]E}{,.txt,.md}"))?.files[0]
 
-  // Project name without scope
-  const name = pkg.name?.replace(/^@[^/]+\//, "") ?? "this project"
+  const name = pkg.name ?? "this project"
   const license = pkg.license ?? "Unknown"
 
   const publicDomain = ["Unlicense", "0BSD", "CC0-1.0"]
   const phrase = publicDomain.includes(license)
-    ? `${name} is released into the public domain under the`
-    : `${name} is released under the`
+    ? `\`${name}\` is released into the public domain under the`
+    : `\`${name}\` is released under the`
 
   const lines = [
     "## License",
     "",
-    phrase,
-    `[${license}](${licenseFile?.name ?? "LICENSE"}).`,
+    `${phrase} [${license}](${licenseFile?.name ?? "LICENSE"}).`,
   ]
 
   const deps = Object.keys(pkg.dependencies ?? {}).sort()
