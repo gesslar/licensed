@@ -53,7 +53,7 @@ The returned object has the following shape:
   name: "my-package",        // package name, or null
   license: "MIT",            // SPDX license identifier, or null
   licenseFile: "LICENSE.txt", // detected license filename, or null
-  publicDomain: false,       // true for Unlicense, 0BSD, CC0-1.0, MIT-0
+  publicDomain: false,       // true for Unlicense, CC0-1.0
   dependencies: [
     { name: "lodash", license: "MIT", repo: "https://github.com/lodash/lodash" },
     { name: "private-pkg", license: "Unknown", repo: null },
