@@ -30,10 +30,11 @@
     "preserveConstEnums": true
   },
   "include": [
-    "src/**/*.js"
+    "src/lib.js"
   ],
   "exclude": [
     "node_modules",
+    "cli.js",
     "tests",
     "work",
     "types"

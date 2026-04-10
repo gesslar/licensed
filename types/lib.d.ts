@@ -38,5 +38,26 @@ export function buildLicenseSection({ name, license, licenseFile, depResults }: 
         repo: string | null;
     }>;
 }): string;
-export const PUBLIC_DOMAIN: string[];
+/**
+ * Generates structured license data for a project.
+ *
+ * @param {TK.FileObject} jsonFile - A FileObject pointing to the project's
+ *   package.json.
+ * @returns {Promise<{name: string|null, license: string|null,
+ *   licenseFile: string|null, publicDomain: boolean,
+ *   dependencies: Array<{name: string, license: string,
+ *   repo: string|null}>}>} Structured license data.
+ */
+export function licensed(jsonFile: TK.FileObject): Promise<{
+    name: string | null;
+    license: string | null;
+    licenseFile: string | null;
+    publicDomain: boolean;
+    dependencies: Array<{
+        name: string;
+        license: string;
+        repo: string | null;
+    }>;
+}>;
+import * as TK from "@gesslar/toolkit";
 //# sourceMappingURL=lib.d.ts.map

@@ -3,7 +3,7 @@ import assert from "node:assert/strict"
 import {writeFile, mkdir, rm} from "node:fs/promises"
 import {join} from "node:path"
 import {tmpdir} from "node:os"
-import {licensed} from "../src/index.js"
+import {licensed} from "../src/lib.js"
 import * as TK from "@gesslar/toolkit"
 
 describe("licensed", () => {
