@@ -88,7 +88,7 @@ describe("licensed", () => {
   })
 
   describe("publicDomain field", () => {
-    for(const lic of ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]) {
+    for(const lic of ["Unlicense", "CC0-1.0"]) {
       it(`returns true for ${lic}`, async() => {
         const jsonFile = await setupFixture({name: "x", license: lic})
         const result = await licensed(jsonFile)
@@ -96,7 +96,7 @@ describe("licensed", () => {
       })
     }
 
-    for(const lic of ["MIT", "Apache-2.0", "GPL-3.0", "ISC"]) {
+    for(const lic of ["MIT", "Apache-2.0", "GPL-3.0", "ISC", "0BSD", "MIT-0"]) {
       it(`returns false for ${lic}`, async() => {
         const jsonFile = await setupFixture({name: "x", license: lic})
         const result = await licensed(jsonFile)
