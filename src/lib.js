@@ -4,7 +4,7 @@ import {promisify} from "node:util"
 
 const exec = promisify(execFile)
 
-const PUBLIC_DOMAIN = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
+const PUBLIC_DOMAIN = ["Unlicense", "CC0-1.0"]
 
 /**
  * Cleans a repository URL to a normalized HTTPS form.
