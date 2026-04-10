@@ -36,12 +36,11 @@ includes:
 
 ## License
 
-licensed is released into the public domain under the
-[Unlicense](UNLICENSE.txt).
+`@gesslar/licensed` is released into the public domain under the [0BSD](LICENSE.txt).
 
 This package includes or depends on third-party components under their own
 licenses:
 
 | Dependency | License |
 | --- | --- |
-| [@gesslar/toolkit](https://github.com/gesslar/toolkit) | Unlicense |
+| [@gesslar/toolkit](https://github.com/gesslar/toolkit) | 0BSD |

@@ -1,6 +1,6 @@
 {
   "name": "@gesslar/licensed",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple CLI to produce license copy for README.md",
   "repository": {
     "type": "git",
@@ -11,14 +11,15 @@
     "name": "gesslar",
     "url": "https://gesslar.dev"
   },
-  "license": "Unlicense",
+  "license": "0BSD",
   "type": "module",
   "homepage": "https://github.com/gesslar/licensed#readme",
   "scripts": {
     "clean": "rm -rfv ./dist",
     "build": "mkdir -pv ./dist && npm pack --pack-destination ./dist/",
     "types": "node -e \"require('fs').rmSync('types',{recursive:true,force:true});\" && tsc -p tsconfig.types.json",
-    "exec": "node ./src/cli.js",
+    "exec": "node ./src/index.js",
+    "test": "node --test tests/**/*.test.js",
     "lint": "eslint src/",
     "submit": "npm publish --access public --//registry.npmjs.org/:_authToken=\"${NPM_ACCESS_TOKEN}\"",
     "update": "npx npm-check-updates -u && npm install",
@@ -28,18 +29,27 @@
     "major": "npm version major"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^5.0.0"
+    "@gesslar/toolkit": "^5.0.1"
   },
   "devDependencies": {
-    "@gesslar/uglier": "^2.2.0",
-    "eslint": "^10.0.3"
+    "@gesslar/uglier": "^2.4.0",
+    "eslint": "^10.2.0",
+    "typescript": "^6.0.2"
   },
   "engines": {
     "node": ">=v24.13.0"
   },
   "files": [
-    "UNLICENSE.txt",
-    "src/**/*.js"
+    "LICENSE.txt",
+    "src/**/*.js",
+    "types/**/*.d.ts",
+    "types/**/*.d.ts.map"
   ],
-  "bin": "./src/cli.js"
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "bin": "./src/index.js"
 }
