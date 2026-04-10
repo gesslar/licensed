@@ -1,6 +1,6 @@
-#!/usr/bin/env node
 /**
  * Generates structured license data for a project.
+ *
  * @param {import("@gesslar/toolkit").FileObject} jsonFile - A FileObject
  *   pointing to the project's package.json.
  * @returns {Promise<{name: string|null, license: string|null,

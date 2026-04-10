@@ -1,11 +1,13 @@
 /**
  * Cleans a repository URL to a normalized HTTPS form.
+ *
  * @param {string|null|undefined} raw - The raw repository URL.
  * @returns {string|null} The cleaned URL or null.
  */
 export function cleanUrl(raw: string | null | undefined): string | null;
 /**
  * Queries npm registry for a dependency's license and repository URL.
+ *
  * @param {string} dep - The dependency name.
  * @returns {Promise<{name: string, license: string, repo: string|null}>}
  *   The dependency info.
@@ -17,6 +19,7 @@ export function npmView(dep: string): Promise<{
 }>;
 /**
  * Builds the markdown license section lines.
+ *
  * @param {object} options - The options.
  * @param {string|undefined} options.name - Package name.
  * @param {string|undefined} options.license - Package license identifier.
@@ -35,4 +38,5 @@ export function buildLicenseSection({ name, license, licenseFile, depResults }: 
         repo: string | null;
     }>;
 }): string;
+export const PUBLIC_DOMAIN: string[];
 //# sourceMappingURL=lib.d.ts.map
