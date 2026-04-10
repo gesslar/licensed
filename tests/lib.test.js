@@ -124,13 +124,14 @@ describe("buildLicenseSection", () => {
       )
     })
 
-    it("uses public domain phrase for 0BSD", () => {
+    it("uses standard phrase for 0BSD", () => {
       const result = buildLicenseSection({
         name: "my-pkg",
         license: "0BSD",
         depResults: [],
       })
-      assert.ok(result.includes("released into the public domain"))
+      assert.ok(result.includes("`my-pkg` is released under the [0BSD]"))
+      assert.ok(!result.includes("public domain"))
     })
 
     it("uses public domain phrase for CC0-1.0", () => {
@@ -142,13 +143,14 @@ describe("buildLicenseSection", () => {
       assert.ok(result.includes("released into the public domain"))
     })
 
-    it("uses public domain phrase for MIT-0", () => {
+    it("uses standard phrase for MIT-0", () => {
       const result = buildLicenseSection({
         name: "my-pkg",
         license: "MIT-0",
         depResults: [],
       })
-      assert.ok(result.includes("released into the public domain"))
+      assert.ok(result.includes("`my-pkg` is released under the [MIT-0]"))
+      assert.ok(!result.includes("public domain"))
     })
 
     it("uses standard phrase for Apache-2.0", () => {
@@ -370,7 +372,7 @@ describe("buildLicenseSection", () => {
       const expected = [
         "## License",
         "",
-        "`my-app` is released into the public domain under the [0BSD](LICENSE).",
+        "`my-app` is released under the [0BSD](LICENSE).",
       ].join("\n")
 
       assert.equal(result, expected)
