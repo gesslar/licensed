@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 import * as TK from "@gesslar/toolkit"
-import {buildLicenseSection, npmView} from "./lib.js"
+import {buildLicenseSection, npmView, PUBLIC_DOMAIN} from "./lib.js"
 import {fileURLToPath} from "node:url"
-
-const PUBLIC_DOMAIN = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
 
 /**
  * Generates structured license data for a project.

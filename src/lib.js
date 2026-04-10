@@ -3,6 +3,8 @@ import {promisify} from "node:util"
 
 const exec = promisify(execFile)
 
+export const PUBLIC_DOMAIN = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
+
 /**
  * Cleans a repository URL to a normalized HTTPS form.
  *
@@ -59,8 +61,7 @@ export function buildLicenseSection({name, license, licenseFile, depResults}) {
   const projName = name ?? "this project"
   const projLicense = license ?? "Unknown"
 
-  const publicDomain = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
-  const phrase = publicDomain.includes(projLicense)
+  const phrase = PUBLIC_DOMAIN.includes(projLicense)
     ? `\`${projName}\` is released into the public domain under the`
     : `\`${projName}\` is released under the`
 
