@@ -1,6 +1,6 @@
 {
   "name": "@gesslar/licensed",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "CLI and library for generating license sections in README.md",
   "repository": {
     "type": "git",
