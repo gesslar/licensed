@@ -1,9 +1,10 @@
+import * as TK from "@gesslar/toolkit"
 import {execFile} from "node:child_process"
 import {promisify} from "node:util"
 
 const exec = promisify(execFile)
 
-export const PUBLIC_DOMAIN = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
+const PUBLIC_DOMAIN = ["Unlicense", "0BSD", "CC0-1.0", "MIT-0"]
 
 /**
  * Cleans a repository URL to a normalized HTTPS form.
@@ -88,4 +89,35 @@ export function buildLicenseSection({name, license, licenseFile, depResults}) {
   }
 
   return lines.join("\n")
+}
+
+/**
+ * Generates structured license data for a project.
+ *
+ * @param {TK.FileObject} jsonFile - A FileObject pointing to the project's
+ *   package.json.
+ * @returns {Promise<{name: string|null, license: string|null,
+ *   licenseFile: string|null, publicDomain: boolean,
+ *   dependencies: Array<{name: string, license: string,
+ *   repo: string|null}>}>} Structured license data.
+ */
+export async function licensed(jsonFile) {
+  const pkg = await jsonFile.loadData()
+  const cwd = jsonFile.parent
+
+  const licenseFileObj =
+    (await cwd.glob("{LICEN[CS]E,UNLICEN[CS]E}{,.txt,.md}"))?.files[0]
+
+  const deps = Object.keys(pkg.dependencies ?? {}).sort()
+  const depResults = deps.length
+    ? await Promise.all(deps.map(dep => npmView(dep)))
+    : []
+
+  return {
+    name: pkg.name ?? null,
+    license: pkg.license ?? null,
+    licenseFile: licenseFileObj?.name ?? null,
+    publicDomain: PUBLIC_DOMAIN.includes(pkg.license),
+    dependencies: depResults,
+  }
 }
