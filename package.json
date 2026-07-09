@@ -34,7 +34,7 @@
   "devDependencies": {
     "@gesslar/uglier": "^2.4.0",
     "eslint": "^10.2.0",
-    "typescript": "^6.0.2"
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": ">=v24.13.0"
